@@ -62,3 +62,15 @@ I dati sono locali al browser/profilo Android. Disinstallare i dati del browser,
 - Report Excel mensile riorganizzato in cinque fogli: Dashboard, Categorie, Movimenti, Budget e Giornaliero.
 - Migliorata la leggibilità e l'interazione touch degli elenchi.
 - La struttura di archiviazione `localStorage` (`saldo-data`) è rimasta invariata: l'aggiornamento non migra, cancella o sovrascrive i movimenti esistenti.
+
+
+## Versione 2.2.0
+- Analisi avanzate con andamento entrate/uscite su 6 o 12 mesi.
+- Confronto automatico con il mese precedente, tasso di risparmio e spesa media giornaliera.
+- Stima delle uscite a fine mese per il mese corrente.
+- Distribuzione delle spese per categoria e analisi per giorno della settimana.
+- Individuazione indicativa di possibili spese ricorrenti (basata su descrizione e importo ripetuti).
+- Filtri movimenti per conto e intervallo di date, oltre a ricerca e tipologia.
+- Aggiornamento cache PWA per distribuire la nuova versione senza cancellare i dati locali.
+
+I dati restano nella stessa chiave locale `saldo-data`; non è richiesta alcuna migrazione.
