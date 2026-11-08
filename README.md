@@ -74,3 +74,12 @@ I dati sono locali al browser/profilo Android. Disinstallare i dati del browser,
 - Aggiornamento cache PWA per distribuire la nuova versione senza cancellare i dati locali.
 
 I dati restano nella stessa chiave locale `saldo-data`; non è richiesta alcuna migrazione.
+
+## Versione 2.3.0 — restyling mobile
+- Interfaccia più leggibile: caratteri, controlli, pulsanti e spaziature aumentati.
+- Palette più vivace con colori distinti per entrate, uscite, budget e azioni principali.
+- Pagina Movimenti con schede verticali ottimizzate per smartphone; la tabella resta disponibile su schermi più ampi.
+- Filtri ridisposti in una griglia mobile più chiara; ricerca estesa anche alle note.
+- Budget e statistiche con gerarchia visiva più chiara e barre di avanzamento più leggibili.
+- Cache PWA aggiornata per distribuire la nuova interfaccia.
+- Nessuna modifica alla struttura dei dati o alla chiave localStorage `saldo-data`.
