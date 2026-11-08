@@ -4,13 +4,13 @@ Saldo è una PWA (Progressive Web App) per la gestione personale delle finanze. 
 
 ## Funzioni incluse
 - Dashboard con saldo totale, entrate, uscite, risparmio netto e andamento degli ultimi 6 mesi.
-- Movimenti: uscite, entrate e trasferimenti tra conti; modifica, eliminazione, ricerca e filtro.
+- Movimenti: uscite, entrate e trasferimenti tra conti; scheda di dettaglio al tocco con descrizione e note, modifica, eliminazione, ricerca e filtro.
 - Categorie e sottocategorie di base (categorie personalizzabili nel codice).
 - Conti multipli con aggiornamento automatico dei saldi e saldo iniziale.
 - Budget mensili per categoria.
 - Analisi con distribuzione delle spese.
 - Obiettivi di risparmio.
-- Esportazione Excel `.xlsx` mensile con fogli Riepilogo, Categorie, Movimenti e Budget.
+- Esportazione Excel `.xlsx` mensile strutturata per analisi: Dashboard, Categorie, Movimenti, Budget e riepilogo Giornaliero; formati in euro e percentuali, filtri, intestazioni bloccate e indicatori visivi.
 - Esportazione CSV, backup JSON e ripristino.
 - Tema chiaro/scuro.
 - Cache offline tramite Service Worker.
@@ -30,6 +30,7 @@ Puoi servire la cartella da un computer sulla stessa rete con un server HTTPS, o
 
 ## Uso
 - Premi **Nuovo movimento** per registrare una spesa o un'entrata.
+- Tocca una riga o una voce di movimento per aprire la scheda completa con descrizione, note, conto, metodo e data; da qui puoi modificarlo.
 - Per un trasferimento seleziona conto di origine e destinazione: non viene conteggiato come spesa o entrata.
 - I saldi iniziali dei conti si inseriscono creando un conto e specificando il saldo iniziale.
 - Seleziona il mese nella schermata per filtrare dashboard, movimenti, budget e analisi.
@@ -54,3 +55,10 @@ I dati sono locali al browser/profilo Android. Disinstallare i dati del browser,
 - Schede, pulsanti, moduli e grafici ridisegnati per un uso touch.
 - Accesso rapido a Conti e Obiettivi dalla sezione Altro/Impostazioni.
 - Cache PWA aggiornata alla versione 2 per forzare il caricamento dei nuovi file.
+
+
+## Aggiornamento 2.1.0
+- Scheda dettagliata dei movimenti apribile toccando una voce, con descrizione e note sempre visibili.
+- Report Excel mensile riorganizzato in cinque fogli: Dashboard, Categorie, Movimenti, Budget e Giornaliero.
+- Migliorata la leggibilità e l'interazione touch degli elenchi.
+- La struttura di archiviazione `localStorage` (`saldo-data`) è rimasta invariata: l'aggiornamento non migra, cancella o sovrascrive i movimenti esistenti.
