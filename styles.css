@@ -214,3 +214,6 @@ body{font-size:15px;line-height:1.55}
  .modal label{font-size:12px}.modal input,.modal select,.modal textarea{font-size:16px;min-height:48px}
 }
 @media(max-width:390px){.stat-card{padding:14px 12px}.stat-value{font-size:20px}.budget-item{grid-template-columns:39px minmax(0,1fr) 94px;gap:8px}.budget-item .cat-icon{width:39px;height:39px}.tx-mobile-card{grid-template-columns:39px minmax(0,1fr) auto;gap:8px;padding:12px 9px}.tx-mobile-icon{width:39px;height:39px}}
+
+/* Gestione sottocategorie */
+.subcategory-manager{display:grid;gap:12px;margin-top:16px}.subcategory-group{padding:13px 15px;border:1px solid var(--border);border-radius:14px;background:var(--surface2)}.subcategory-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}.subcategory-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:.92rem}.subcategory-chip button{border:0;background:transparent;color:var(--red);font-size:1.15rem;line-height:1;cursor:pointer;padding:0 2px}

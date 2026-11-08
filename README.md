@@ -64,7 +64,7 @@ I dati sono locali al browser/profilo Android. Disinstallare i dati del browser,
 - La struttura di archiviazione `localStorage` (`saldo-data`) è rimasta invariata: l'aggiornamento non migra, cancella o sovrascrive i movimenti esistenti.
 
 
-## Versione 2.2.0
+## Versione 2.4.0
 - Analisi avanzate con andamento entrate/uscite su 6 o 12 mesi.
 - Confronto automatico con il mese precedente, tasso di risparmio e spesa media giornaliera.
 - Stima delle uscite a fine mese per il mese corrente.
@@ -83,3 +83,12 @@ I dati restano nella stessa chiave locale `saldo-data`; non è richiesta alcuna 
 - Budget e statistiche con gerarchia visiva più chiara e barre di avanzamento più leggibili.
 - Cache PWA aggiornata per distribuire la nuova interfaccia.
 - Nessuna modifica alla struttura dei dati o alla chiave localStorage `saldo-data`.
+
+
+## Versione 2.4.0 — sottocategorie e Sport
+- Aggiunta la categoria di spesa Sport, con budget iniziale pari a 0 € (modificabile).
+- Possibilità di creare sottocategorie personalizzate per ciascuna categoria di spesa da Impostazioni → Categorie e sottocategorie.
+- Le sottocategorie sono selezionabili quando si crea o modifica un movimento; i movimenti precedenti restano validi senza sottocategoria.
+- Dettagli, elenchi, ricerca, esportazione CSV ed Excel includono la sottocategoria.
+- Il foglio Excel Categorie include anche un riepilogo specifico per sottocategoria; il budget continua a essere gestito e aggregato sulla categoria principale.
+- I dati aggiuntivi sono salvati nella stessa chiave `saldo-data`; nessun movimento esistente viene cancellato o riscritto.
