@@ -46,3 +46,11 @@ I dati sono locali al browser/profilo Android. Disinstallare i dati del browser,
 - `manifest.webmanifest` metadati PWA
 - `sw.js` cache offline
 - `icon.svg` icona
+
+
+## Aggiornamento grafico 2.0
+- Navigazione inferiore ottimizzata per smartphone con accesso rapido alle sezioni principali.
+- Pulsante flottante per registrare rapidamente un movimento.
+- Schede, pulsanti, moduli e grafici ridisegnati per un uso touch.
+- Accesso rapido a Conti e Obiettivi dalla sezione Altro/Impostazioni.
+- Cache PWA aggiornata alla versione 2 per forzare il caricamento dei nuovi file.

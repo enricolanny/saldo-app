@@ -32,7 +32,7 @@
 
   <main class="main">
     <header class="topbar">
-      <button class="mobile-brand" id="mobileMenu">☰ <b>saldo</b></button>
+      <div class="mobile-brand"><span class="brand-mark mini">S</span><b>saldo</b></div>
       <div class="topbar-title"><span id="eyebrow">PANORAMICA</span><h1 id="pageTitle">Dashboard</h1></div>
       <div class="top-actions">
         <button class="icon-btn" id="themeToggle" title="Cambia tema">◐</button>
@@ -60,6 +60,14 @@
     </form>
   </section>
 </div>
+<nav class="mobile-nav" aria-label="Navigazione principale">
+  <button class="mobile-nav-item active" data-view="dashboard"><span>⌂</span><small>Home</small></button>
+  <button class="mobile-nav-item" data-view="transactions"><span>⇄</span><small>Movimenti</small></button>
+  <button class="mobile-nav-item" data-view="budgets"><span>◷</span><small>Budget</small></button>
+  <button class="mobile-nav-item" data-view="analytics"><span>▥</span><small>Analisi</small></button>
+  <button class="mobile-nav-item" data-view="settings"><span>•••</span><small>Altro</small></button>
+</nav>
+<button class="mobile-fab" id="mobileAdd" aria-label="Aggiungi movimento">＋</button>
 <div class="toast" id="toast" role="status"></div>
 <script src="app.js"></script>
 </body>
