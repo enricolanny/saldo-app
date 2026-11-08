@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="Gestione personale di spese, entrate, budget e risparmi.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>Saldo — Finanze personali</title>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">S</div><div><b>saldo</b><small>PERSONAL FINANCE</small></div></div>
+    <div class="side-label">PANORAMICA</div>
+    <nav class="nav">
+      <button class="nav-item active" data-view="dashboard"><span>▦</span> Dashboard</button>
+      <button class="nav-item" data-view="transactions"><span>⇄</span> Movimenti</button>
+      <button class="nav-item" data-view="budgets"><span>◷</span> Budget</button>
+      <button class="nav-item" data-view="analytics"><span>▥</span> Analisi</button>
+    </nav>
+    <div class="side-label">GESTIONE</div>
+    <nav class="nav">
+      <button class="nav-item" data-view="accounts"><span>▤</span> Conti</button>
+      <button class="nav-item" data-view="goals"><span>◎</span> Obiettivi</button>
+      <button class="nav-item" data-view="settings"><span>⚙</span> Impostazioni</button>
+    </nav>
+    <div class="sidebar-bottom"><div class="privacy-dot"></div><span>Dati salvati su questo dispositivo</span></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="mobile-brand" id="mobileMenu">☰ <b>saldo</b></button>
+      <div class="topbar-title"><span id="eyebrow">PANORAMICA</span><h1 id="pageTitle">Dashboard</h1></div>
+      <div class="top-actions">
+        <button class="icon-btn" id="themeToggle" title="Cambia tema">◐</button>
+        <button class="btn btn-primary" id="quickAdd">＋ <span>Nuovo movimento</span></button>
+      </div>
+    </header>
+    <section class="content" id="content"></section>
+    <footer class="footer">SALDO <span>•</span> PRIVATO, SEMPLICE, TUO</footer>
+  </main>
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop" hidden>
+  <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head"><div><span class="eyebrow">REGISTRAZIONE</span><h2 id="modalTitle">Nuovo movimento</h2></div><button class="icon-btn" id="closeModal">✕</button></div>
+    <form id="transactionForm">
+      <input type="hidden" id="txId">
+      <div class="type-switch"><button type="button" class="type-btn selected" data-type="expense">Uscita</button><button type="button" class="type-btn" data-type="income">Entrata</button><button type="button" class="type-btn" data-type="transfer">Trasferimento</button></div>
+      <label>Importo (€)<input id="amount" type="number" inputmode="decimal" min="0.01" step="0.01" placeholder="0,00" required></label>
+      <div class="form-grid"><label>Categoria<select id="category" required></select></label><label>Conto<select id="account" required></select></label></div>
+      <div class="form-grid" id="transferAccounts" hidden><label>Conto di destinazione<select id="toAccount"></select></label><label>Data<input id="date" type="date" required></label></div>
+      <div class="form-grid" id="normalDate"><label>Data<input id="dateAlt" type="date" required></label><label>Metodo di pagamento<select id="method"><option>Contanti</option><option>Carta</option><option>Bonifico</option><option>Addebito</option><option>Altro</option></select></label></div>
+      <label>Descrizione<input id="description" type="text" maxlength="90" placeholder="Es. Spesa supermercato"></label>
+      <label>Note<textarea id="notes" rows="2" placeholder="Dettagli facoltativi"></textarea></label>
+      <div class="modal-actions"><button type="button" class="btn btn-ghost" id="cancelModal">Annulla</button><button class="btn btn-primary" type="submit">Salva movimento</button></div>
+    </form>
+  </section>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>

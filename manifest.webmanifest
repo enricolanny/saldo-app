@@ -1,0 +1,19 @@
+{
+  "name": "Saldo — Finanze personali",
+  "short_name": "Saldo",
+  "description": "Gestione personale di spese, entrate e budget",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0d1421",
+  "theme_color": "#101827",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
