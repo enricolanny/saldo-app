@@ -50,17 +50,30 @@
     <div id="detailContent"></div>
   </section>
 </div>
+<div class="modal-backdrop" id="categoryChartBackdrop" hidden>
+  <section class="modal category-chart-modal" role="dialog" aria-modal="true" aria-labelledby="categoryChartTitle">
+    <div class="modal-head"><div><span class="eyebrow">ANALISI PER CATEGORIA</span><h2 id="categoryChartTitle">Spese</h2></div><button class="icon-btn" id="categoryChartClose" aria-label="Chiudi">✕</button></div>
+    <div id="categoryChartContent"></div>
+  </section>
+</div>
 <div class="modal-backdrop" id="modalBackdrop" hidden>
   <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-head"><div><span class="eyebrow">REGISTRAZIONE</span><h2 id="modalTitle">Nuovo movimento</h2></div><button class="icon-btn" id="closeModal">✕</button></div>
     <form id="transactionForm">
       <input type="hidden" id="txId">
       <div class="type-switch"><button type="button" class="type-btn selected" data-type="expense">Uscita</button><button type="button" class="type-btn" data-type="income">Entrata</button><button type="button" class="type-btn" data-type="transfer">Trasferimento</button></div>
+      <label>Nome movimento<input id="description" type="text" maxlength="90" placeholder="Es. Spesa supermercato"></label>
+      <div class="form-grid">
+        <label id="categoryField">Categoria<select id="category" required></select></label>
+        <label id="subcategoryField">Sottocategoria<select id="subcategory"><option value="">Nessuna sottocategoria</option></select></label>
+      </div>
       <label>Importo (€)<input id="amount" type="number" inputmode="decimal" min="0.01" step="0.01" placeholder="0,00" required></label>
-      <div class="form-grid"><label>Categoria<select id="category" required></select></label><label>Conto<select id="account" required></select></label></div><label id="subcategoryField" hidden>Sottocategoria<select id="subcategory"></select></label>
-      <div class="form-grid" id="transferAccounts" hidden><label>Conto di destinazione<select id="toAccount"></select></label><label>Data<input id="date" type="date" required></label></div>
-      <div class="form-grid" id="normalDate"><label>Data<input id="dateAlt" type="date" required></label><label>Metodo di pagamento<select id="method"><option>Contanti</option><option>Carta</option><option>Bonifico</option><option>Addebito</option><option>Altro</option></select></label></div>
-      <label>Descrizione<input id="description" type="text" maxlength="90" placeholder="Es. Spesa supermercato"></label>
+      <label id="methodField">Metodo di pagamento<select id="method"><option>Contanti</option><option>Carta</option><option>Bonifico</option><option>Addebito</option><option>Altro</option></select></label>
+      <label id="dateField">Data<input id="date" type="date" required></label>
+      <div class="form-grid">
+        <label>Conto<select id="account" required></select></label>
+        <label id="transferAccountField" hidden>Conto di destinazione<select id="toAccount"></select></label>
+      </div>
       <label>Note<textarea id="notes" rows="2" placeholder="Dettagli facoltativi"></textarea></label>
       <div class="modal-actions"><button type="button" class="btn btn-ghost" id="cancelModal">Annulla</button><button class="btn btn-primary" type="submit">Salva movimento</button></div>
     </form>
