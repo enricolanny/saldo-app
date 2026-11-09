@@ -7,7 +7,7 @@ const CATEGORIES = {
 };
 const DEFAULT = {transactions:[],accounts:[{id:"cash",name:"Contanti",type:"Contanti",balance:0},{id:"bank",name:"Conto corrente",type:"Banca",balance:0},{id:"card",name:"Carta",type:"Carta",balance:0}],budgets:{"Casa":500,"Alimentari":300,"Ristoranti":120,"Trasporti":100,"Shopping":150,"Salute":60,"Tempo libero":100,"Utenze":150,"Abbonamenti":40,"Viaggi":100,"Istruzione":50,"Sport":0,"Altro":100},goals:[],subcategories:{},theme:"dark",accentTheme:"violet",currency:"EUR"};
 let state = loadState(), currentView="dashboard", selectedMonth=new Date().toISOString().slice(0,7), txType="expense", toastTimer, analyticsRange=12;
-function loadState(){try{return {...DEFAULT,...JSON.parse(localStorage.getItem("saldo-data")||"{}")}}catch{return structuredClone(DEFAULT)}}
+function loadState(){try{const saved=JSON.parse(localStorage.getItem("saldo-data")||"{}");return {...DEFAULT,...saved,budgets:{...DEFAULT.budgets,...(saved.budgets||{})},subcategories:{...DEFAULT.subcategories,...(saved.subcategories||{})},accounts:Array.isArray(saved.accounts)?saved.accounts:DEFAULT.accounts,transactions:Array.isArray(saved.transactions)?saved.transactions:DEFAULT.transactions,goals:Array.isArray(saved.goals)?saved.goals:DEFAULT.goals}}catch{return structuredClone(DEFAULT)}}
 function save(){localStorage.setItem("saldo-data",JSON.stringify(state))}
 function money(v){return new Intl.NumberFormat("it-IT",{style:"currency",currency:"EUR"}).format(Number(v)||0)}
 function dateISO(d=new Date()){return d.toISOString().slice(0,10)}
