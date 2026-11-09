@@ -92,3 +92,14 @@ I dati restano nella stessa chiave locale `saldo-data`; non è richiesta alcuna 
 - Dettagli, elenchi, ricerca, esportazione CSV ed Excel includono la sottocategoria.
 - Il foglio Excel Categorie include anche un riepilogo specifico per sottocategoria; il budget continua a essere gestito e aggregato sulla categoria principale.
 - I dati aggiuntivi sono salvati nella stessa chiave `saldo-data`; nessun movimento esistente viene cancellato o riscritto.
+
+
+## Versione 2.5.0 — analisi e personalizzazione
+- Modulo movimento riordinato: nome, categoria e sottocategoria, importo, metodo di pagamento, una sola data, conto e note.
+- Grafici mensili con colonne delle uscite impilate per categoria; segmenti colorati proporzionali alla spesa di ciascuna categoria.
+- Media giornaliera calcolata sull'intero numero di giorni del mese.
+- Rimossa la scheda «In sintesi» dalla pagina Analisi.
+- Le categorie nel dettaglio Analisi sono selezionabili e aprono un grafico giornaliero del mese (giorni sull'asse X, importo sull'asse Y).
+- Excel riorganizzato in sei fogli: Dashboard, Categorie, Sottocategorie, Movimenti, Budget e Giornaliero; dashboard con indicatori in evidenza, tabelle, formati euro/percentuali, intestazioni bloccate, filtri e colori coerenti.
+- Aggiunta la scelta del colore principale dell'interfaccia: viola, blu, smeraldo, corallo e ambra.
+- La chiave locale `saldo-data` e la struttura dei movimenti restano compatibili; nessun dato viene cancellato o migrato.
