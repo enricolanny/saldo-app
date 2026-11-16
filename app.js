@@ -19,7 +19,7 @@ function incomeTotal(arr){return sum(arr.filter(t=>t.type==="income"),t=>+t.amou
 function accountBalance(id){const a=state.accounts.find(x=>x.id===id);return a?+a.balance:0}
 function accountName(id){return state.accounts.find(x=>x.id===id)?.name||"Conto eliminato"}
 function catIcon(cat){return [...CATEGORIES.expense,...CATEGORIES.income].find(x=>x[0]===cat)?.[1]||"📦"}
-function categoryColor(cat){const palette=["#8b83ff","#27bd91","#e8a443","#ed7182","#46a9cf","#b184dc","#d784b0","#79a6a0","#d17a49","#7f94c8"];let i=CATEGORIES.expense.findIndex(x=>x[0]===cat);if(i<0){let h=0;for(const ch of String(cat||""))h=(h*31+ch.charCodeAt(0))|0;i=Math.abs(h)}return palette[i%palette.length]}
+function categoryColor(cat){const palette=["#7C3AED","#F97316","#DB2777","#2563EB","#DC2626","#D97706","#0891B2","#4F46E5","#A21CAF","#64748B","#EA580C","#9333EA"];let i=CATEGORIES.expense.findIndex(x=>x[0]===cat);if(i<0){let h=0;for(const ch of String(cat||""))h=(h*31+ch.charCodeAt(0))|0;i=Math.abs(h)}return palette[i%palette.length]}
 function subcategoryLabel(t){return t?.subcategory?`${t.category||"Altro"} · ${t.subcategory}`:(t?.category||"—")}
 function subcategoryOptions(category,selected=""){const items=state.subcategories?.[category]||[];return `<option value="">Nessuna sottocategoria</option>${items.map(s=>`<option value="${esc(s)}" ${s===selected?"selected":""}>${esc(s)}</option>`).join("")}`}
 function refreshSubcategory(selected=""){const el=$("#subcategory");if(!el)return;const category=$("#category").value;const items=state.subcategories?.[category]||[];el.innerHTML=subcategoryOptions(category,selected);el.disabled=items.length===0;$("#subcategoryField").hidden=txType==="transfer"}
