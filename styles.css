@@ -243,3 +243,8 @@ body{font-size:15px;line-height:1.55}
 @media(max-width:560px){.category-chart-summary{grid-template-columns:1fr 1fr;gap:7px}.category-chart-summary>div{padding:11px}.category-chart-summary span{font-size:11px}.category-chart-summary b{font-size:15px}.category-chart-modal{padding:18px}}
 .bar.expense-stack{display:flex;flex-direction:column-reverse;overflow:hidden;background:transparent;border-radius:7px 7px 3px 3px}
 .bar.expense-stack>i{display:block;flex:0 0 auto;width:100%;min-height:0}
+
+/* SALDO 2.5.1 — category colours independent from selected accent theme */
+.bar.expense-stack,.monthly-bar.expense-stack{display:flex;flex-direction:column-reverse;overflow:hidden;background:transparent!important;border-radius:7px 7px 3px 3px;}
+.bar.expense-stack>i,.monthly-bar.expense-stack>i{display:block;flex:0 0 auto;width:100%;min-height:0;}
+.bar.income,.monthly-bar.income{background:linear-gradient(180deg,#57d5ae,#159b70)!important;}
