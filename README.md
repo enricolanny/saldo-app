@@ -103,3 +103,17 @@ I dati restano nella stessa chiave locale `saldo-data`; non è richiesta alcuna 
 - Excel riorganizzato in sei fogli: Dashboard, Categorie, Sottocategorie, Movimenti, Budget e Giornaliero; dashboard con indicatori in evidenza, tabelle, formati euro/percentuali, intestazioni bloccate, filtri e colori coerenti.
 - Aggiunta la scelta del colore principale dell'interfaccia: viola, blu, smeraldo, corallo e ambra.
 - La chiave locale `saldo-data` e la struttura dei movimenti restano compatibili; nessun dato viene cancellato o migrato.
+
+
+## Versione 2.6.0 — finestre di dialogo affidabili su mobile
+- Sostituiti tutti i `prompt()`/`confirm()`/`alert()` nativi del browser (usati per creare/rinominare conti, obiettivi, versamenti ed eliminazioni) con un modulo di dialogo interno all'app, coerente con il resto dell'interfaccia.
+- Motivo: su iOS, quando l'app è installata come PWA in modalità standalone (da "Aggiungi a schermata Home", come consigliato da questa guida), `window.prompt()` non è supportato e `window.confirm()`/`window.alert()` possono comportarsi in modo incoerente. Le funzioni che li usavano (nuovo conto, rinomina conto, nuovo obiettivo, aggiungi risparmio, eliminazioni, ripristino backup, cancellazione dati, backup su Drive) potevano risultare silenziosamente inutilizzabili su telefono.
+- Gli importi ora si inseriscono con tastiera numerica dedicata (`inputmode="decimal"`), invece che in un dialog di sistema senza controllo sul tipo di tastiera.
+- Aggiunta conferma (mancante) anche per l'eliminazione di un obiettivo di risparmio, per coerenza con le altre eliminazioni.
+- Il pulsante "Backup su Drive" ora appare disabilitato con una nota esplicita finché non viene configurato un Client ID OAuth nel codice, invece di sembrare attivo e non rispondere al tocco.
+- Nessuna modifica alla struttura dei dati o alla chiave locale `saldo-data`; nessun movimento, conto o obiettivo esistente viene toccato.
+
+## Versione 2.6.1 — tasto Indietro su Android
+- Aggiunta la gestione del tasto/gesto Indietro di Android: ora chiude il modulo in primo piano (nuovo movimento, dettaglio movimento, grafico per categoria, finestre di conferma) invece di uscire dall'app o navigare altrove. Prima non c'era alcuna integrazione con la cronologia del browser.
+- Corretto un collegamento diretto di alcuni pulsanti di chiusura alle funzioni che gestiscono il tasto Indietro: passavano l'evento del click come parametro, disallineando la cronologia.
+- Cache del Service Worker aggiornata alla versione 11 per forzare il caricamento dei nuovi file su dispositivi che avevano già l'app installata.
