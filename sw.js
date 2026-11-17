@@ -1,5 +1,61 @@
-const CACHE="saldo-pwa-v11";
-const ASSETS=["./","./index.html","./styles.css","./app.js","./manifest.webmanifest","./icon.svg"];
-self.addEventListener("install",e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
-self.addEventListener("activate",e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
-self.addEventListener("fetch",e=>{if(e.request.method!=="GET")return;e.respondWith(caches.match(e.request).then(cached=>cached||fetch(e.request).then(res=>{if(res.ok){let copy=res.clone();caches.open(CACHE).then(c=>c.put(e.request,copy))}return res}).catch(()=>caches.match("./index.html"))))});
+const CACHE = "saldo-pwa-v12";
+const ASSETS = [
+  "./",
+  "./index.html",
+  "./styles.css",
+  "./app.js",
+  "./manifest.webmanifest",
+  "./icon.svg"
+];
+
+self.addEventListener("install", event => {
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE);
+    try {
+      // Scarica ogni risorsa ignorando la cache HTTP: il nuovo cache set
+      // viene completato solo se TUTTI i file arrivano correttamente.
+      for (const url of ASSETS) {
+        const request = new Request(url, { cache: "reload" });
+        const response = await fetch(request);
+        if (!response.ok) throw new Error("Impossibile aggiornare " + url);
+        await cache.put(url, response);
+      }
+      await self.skipWaiting();
+    } catch (error) {
+      await caches.delete(CACHE);
+      throw error;
+    }
+  })());
+});
+
+self.addEventListener("activate", event => {
+  event.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(keys.filter(key => key.startsWith("saldo-pwa-") && key !== CACHE).map(key => caches.delete(key)));
+    await self.clients.claim();
+  })());
+});
+
+self.addEventListener("fetch", event => {
+  const request = event.request;
+  if (request.method !== "GET" || new URL(request.url).origin !== self.location.origin) return;
+
+  event.respondWith((async () => {
+    const cached = await caches.match(request);
+    if (cached) return cached;
+
+    try {
+      const response = await fetch(request);
+      if (response.ok) {
+        const cache = await caches.open(CACHE);
+        cache.put(request, response.clone()).catch(() => {});
+      }
+      return response;
+    } catch (error) {
+      if (request.mode === "navigate") {
+        return (await caches.match("./index.html")) || Response.error();
+      }
+      return Response.error();
+    }
+  })());
+});
