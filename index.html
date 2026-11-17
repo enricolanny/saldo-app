@@ -87,6 +87,22 @@
   <button class="mobile-nav-item" data-view="settings"><span>•••</span><small>Altro</small></button>
 </nav>
 <button class="mobile-fab" id="mobileAdd" aria-label="Aggiungi movimento">＋</button>
+<div class="modal-backdrop" id="formBackdrop" hidden>
+  <section class="modal form-modal" role="dialog" aria-modal="true" aria-labelledby="formModalTitle">
+    <div class="modal-head">
+      <div><span class="eyebrow">SALDO</span><h2 id="formModalTitle">Conferma</h2></div>
+      <button class="icon-btn" id="formModalClose" type="button" aria-label="Chiudi">✕</button>
+    </div>
+    <form id="formModalForm">
+      <p id="formModalMessage" hidden></p>
+      <div id="formModalFields"></div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="formModalCancel" type="button">Annulla</button>
+        <button class="btn btn-primary" id="formModalOk" type="submit">Conferma</button>
+      </div>
+    </form>
+  </section>
+</div>
 <div class="toast" id="toast" role="status"></div>
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 <script src="app.js"></script>
